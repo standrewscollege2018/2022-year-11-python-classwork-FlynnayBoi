@@ -1,47 +1,46 @@
 #Car Rental
-print('Welcome to the University Retal System')
+print('Welcome to the University Car Rental System')
+print('')
 print('Vehicles avaliable to rent are:')
-car_list = []
+car_list = ["1. Suzuki Van - 2 Seats - ",
+            "2. Toyota Corolla - 4 Seats - ",
+            "3. Honda CRV - 4 Seats - ",
+            "4. Suzuki Swift - 4 Seats - ",
+            "5. Mitzubishi Airtrek - 4 Seats - ",
+            "6. Nissan DC Ute - 4 Seats - ",
+            "7. Toyota Previa - 7 Seats - ",
+            "8. Toyota HI Ace 1 - 12 Seats - ",
+            "9. Toyota HI Ace 2 - 12 Seats - "]
+availability = [True, True, True, True, True, True, True, True, True]
+for i in range(len(car_list)):
+    if availability[i] == True:
+        av = "Available"
+    else:
+        av = "Unavailable"
+    print(car_list[i], av)
 
-#Varibles that are the cars and whether they are avaliable
-suz_van = f"Suzuki Van - 2 Seats"
-suzvan_av = True
-toy_cor = "Toyota Corolla - 4 Seats"
-toycor_av = True
-hon_crv = "Honda CRV - 4 Seats"
-honcrv = True
-suz_swi = "Suzuki Swift - 4 Seats"
-suzswi_av = True
-mit_air = "Mitzubishi Airtrek - 4 Seats"
-mitair_av = True
-nisdc_ute = "Nissan DC Ute - 4 Seats"
-nisdcute_av = True
-toy_pre = "Toyota Previa - 7 Seats"
-toypre_av = True
-toyhi_ace1 = "Toyota HI Ace 1 - 12 Seats"
-toyhiace1_av = True
-toyhi_ace2 = "Toyota HI Ace 2 - 12 Seats"
-toyhiace2_av = True
 
-#Adding the cars to a list
-car_list.append(suz_van)
-car_list.append(toy_cor)
-car_list.append(hon_crv)
-car_list.append(suz_swi)
-car_list.append(mit_air)
-car_list.append(nisdc_ute)
-car_list.append(toy_pre)
-car_list.append(toyhi_ace1)
-car_list.append(toyhi_ace2)
+#Asking which car they want and getting an input
+print('')
+print('Which car would you like to rent out?')
+print('(Enter the number assigned to the car of choice')
+ask = True
+while ask == True:
+    try:
+        what_car = int(input())
+        if availability[what_car-1] == False:
+            print('Car is unavailable')
+        else:
+            availability[what_car-1]=False
+            for i in range(len(car_list)):
+                if availability[i] == True:
+                    av = "Available"
+                else:
+                    av = "Unavailable"
+            print(car_list[what_car-1], av)
+            ask = False
+    except ValueError:
+        print('Enter the assigned number')
 
-#Printing the cars to see the options
-print(car_list[0])
-print(car_list[1])
-print(car_list[2])
-print(car_list[3])
-print(car_list[4])
-print(car_list[5])
-print(car_list[6])
-print(car_list[7])
-print(car_list[8])
-
+print('Car is available')
+print('What is your name? (first and last)')
